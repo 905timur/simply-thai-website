@@ -1,6 +1,6 @@
 // Sticky Header on Scroll
 window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
+    const header = document.querySelector('.main-header');
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
     } else {
@@ -39,10 +39,21 @@ dots.forEach((dot, i) => {
 
 // Mobile Nav Toggle
 const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('nav ul');
+const mainNav = document.querySelector('.main-nav');
+const hamburger = document.querySelector('.hamburger');
 
 navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('showing');
+    mainNav.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});
+
+// Close mobile menu when a link is clicked
+const navLinks = document.querySelectorAll('.main-nav a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        hamburger.classList.remove('active');
+    });
 });
 
 // Lazy Loading Images
@@ -59,16 +70,3 @@ function lazyLoad() {
 
 window.addEventListener('scroll', lazyLoad);
 window.addEventListener('load', lazyLoad);
-
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-document.querySelector('.nav-toggle').addEventListener('click', function() {
-    document.querySelector('nav ul').classList.toggle('showing');
-});
