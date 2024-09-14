@@ -92,6 +92,23 @@
             cursor: pointer;
         }
 
+        /* Author class styles */
+.author {
+    font-size: 0.8rem; /* Makes the text smaller */
+    color: #000000; /* Color of the text */
+    margin-top: 1rem; /* Adds some space above the author section */
+}
+
+.author a {
+    color: #DAA520; /* Color of the link */
+    text-decoration: none; /* Removes underline from the link */
+}
+
+.author a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -316,7 +333,7 @@
 
     <div class="content-wrapper">
         <div class="card">
-            <h1>Welcome to Simply Thai</h1>
+            <h2 class="place-title">Welcome to Simply Thai</h2>
             <img src="images/simply-thai-interior.jpeg" alt="Simply Thai Restaurant" class="hero-image">
             <p>Taste the real Thailand right here in The Six. Our chefs blend old-school recipes with contemporary culinary practices to create dishes you won't forget. Come join us for a meal that'll transport your taste buds halfway around the world.</p>
 
@@ -326,7 +343,7 @@
             </div>
 
             <div class="place-wrapper">
-                <h2 class="place-title">A Place to Meet and Eat</h2>
+                <h2 class="place-title">Discover Your New Favourite Thai Spot</h2>
                 <div class="place-content">
                     <img src="images/simply-thai-exterior.jpg" alt="Meeting Place" class="place-image">
                     <div class="place-text">
@@ -343,9 +360,15 @@
             <footer>
                 <a href="#" class="btn">
                     <i class="fab fa-instagram"></i>
-                    <span>Follow us on Instagram</span></a><br>
+                    <span>Follow us on Instagram</span>
+                </a><br>
+
                 <p>&copy; 2024 Simply Thai. All rights reserved.</p>
+                <div class="author">
+                    Designed & Developed by <a href="https://github.com/905timur" target="_blank">905timur</a>
+                </div>
             </footer>
+            
         </div>
     </div>
 

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Simply Thai</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Reset and base styles */
         * {
@@ -20,14 +22,28 @@
             line-height: 1.6;
         }
 
+        .overpass-navbar-logo {
+            font-family: "Overpass", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 3400;
+            font-style: normal;
+            font-size: 2rem;
+        }
+
         /* Header styles */
         header {
             background-color: #F8F8F2;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .header-content {
@@ -63,6 +79,15 @@
 
         nav ul li a:hover {
             color: #DAA520;
+        }
+
+        /* Mobile Nav Toggle */
+        .nav-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
         /* Main content styles */
@@ -137,7 +162,16 @@
             }
 
             nav ul {
-                margin-top: 1rem;
+                display: none;
+                flex-direction: column;
+            }
+
+            nav ul.showing {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
             }
 
             nav ul li {
@@ -155,13 +189,31 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Author class styles */
+.author {
+    font-size: 0.8rem; /* Makes the text smaller */
+    color: #000000; /* Color of the text */
+    margin-top: 1rem; /* Adds some space above the author section */
+}
+
+.author a {
+    color: #DAA520; /* Color of the link */
+    text-decoration: none; /* Removes underline from the link */
+}
+
+.author a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <div class="logo">Simply Thai</div>
+            <div class="overpass-navbar-logo">SIMPLY THAI</div>
             <nav>
+                <button class="nav-toggle">☰</button>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -209,11 +261,17 @@
             </div>
 
             <footer>
+
+
                 <p>&copy; 2024 Simply Thai. All rights reserved.</p>
+                <div class="author">
+                    Designed & Developed by <a href="https://github.com/905timur" target="_blank">905timur</a>
+                </div>
             </footer>
+            
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
