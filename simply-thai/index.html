@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simply Thai - Authentic Thai Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .overpass-navbar-logo {
+            font-family: "Overpass", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 3400; /* Adjust weight between 100 and 900 */
+            font-style: normal;
+            font-size: 2rem;
+        }
+
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F8F8F2;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #F8F8F2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #000000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #DAA520;
+        }
+
+        /* Mobile Nav Toggle */
+        .nav-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav ul.showing {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+        }
+
+        /* Main content styles */
+        .content-wrapper {
+            margin-top: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem 1rem;
+            padding-bottom: 2rem;;
+        }
+
+        .card {
+            background-color: #FAFAF5;
+            width: 100%;
+            max-width: 888px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 444px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border-radius: 8px; /* Adds rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            overflow: hidden; /* Ensures content doesn't overflow the border */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        /* Button styles */
+        .btn-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%; /* Ensure the container spans the full width of its parent */
+}
+
+
+        .btn {
+            display: inline-block;
+            background-color: #DAA520;
+            color: #000000;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: left 0.4s ease;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: #B8860B;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* A Place to Meet and Eat section */
+        .place-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin-top: 3rem;
+        }
+
+        .place-title {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .place-content {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-direction: row;
+        }
+
+        .place-image {
+            max-width: 600px;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .place-text {
+            max-width: 460px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #F8F8F2;
+            color: #000000;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Updated Instagram button styles */
+        .instagram-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            border: 2px solid #DAA520;
+            border-radius: 5px;
+            color: #000000;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;;
+        }
+
+        .instagram-button i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .instagram-button:hover {
+            background-color: #DAA520;
+            color: #FFFFFF;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+
+            .place-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .place-image, .place-text {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="overpass-navbar-logo">SIMPLY THAI</div>
+            <nav>
+                <button class="nav-toggle">☰</button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#">Reservations</a></li>
+                    <li><a href="#">Order Online</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="card">
+            <h1>Welcome to Simply Thai</h1>
+            <img src="images/simply-thai-interior.jpeg" alt="Simply Thai Restaurant" class="hero-image">
+            <p>Taste the real Thailand right here in The Six. Our chefs blend old-school recipes with contemporary culinary practices to create dishes you won't forget. Come join us for a meal that'll transport your taste buds halfway around the world.</p>
+
+            <div class="btn-container">
+                <a href="#" class="btn">Make a Reservation</a>
+                <a href="#" class="btn">See Our Menu</a>
+            </div>
+
+            <div class="place-wrapper">
+                <h2 class="place-title">A Place to Meet and Eat</h2>
+                <div class="place-content">
+                    <img src="images/simply-thai-exterior.jpg" alt="Meeting Place" class="place-image">
+                    <div class="place-text">
+                        <p>Looking for a great spot to enjoy Thai food with friends and family? Check out SIMPLY THAI.</p><br>
+                        
+                        <p>We're right in the heart of Bloor West Village, offering delicious Thai dishes in a cozy, welcoming atmosphere. Our friendly staff is here to make your visit special.</p><br>
+                        
+                        <p>Our menu has all the Thai classics you love, with plenty of options for everyone - whether you're into chicken, beef, seafood, or prefer vegetarian dishes. We're proud that Toronto Sun readers voted us the city's best Thai restaurant back in 2003, and we've been living up to that standard ever since.</p><br>
+                        
+                        <p>Come on by and give us a try. We think you'll love it here.</p>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <a href="#" class="btn">
+                    <i class="fab fa-instagram"></i>
+                    <span>Follow us on Instagram</span></a><br>
+                <p>&copy; 2024 Simply Thai. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
