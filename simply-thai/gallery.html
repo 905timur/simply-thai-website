@@ -92,7 +92,7 @@
         /* Gallery styles */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
             margin-top: 2rem;
         }
@@ -100,35 +100,19 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
+            border-radius: 4px;
+            aspect-ratio: 1 / 1;
         }
 
         .gallery-item img {
             width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .gallery-item-description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #F8F8F2;
-            padding: 0.5rem;
-            transform: translateY(100%);
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover .gallery-item-description {
-            transform: translateY(0);
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
         /* Footer styles */
@@ -162,7 +146,13 @@
             }
 
             .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -190,47 +180,36 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/400/300" alt="Thai Dish 1">
-                    <div class="gallery-item-description">Pad Thai - Our signature stir-fried rice noodle dish</div>
+                    <img src="images/1.jpg" alt="Thai Dish 1">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/401/300" alt="Thai Dish 2">
-                    <div class="gallery-item-description">Green Curry - Rich and aromatic coconut curry</div>
+                    <img src="images/2.jpg" alt="Thai Dish 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/402/300" alt="Thai Dish 3">
-                    <div class="gallery-item-description">Tom Yum Soup - Hot and sour soup with shrimp</div>
+                    <img src="images/3.jpg" alt="Thai Dish 3">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/403/300" alt="Restaurant Interior 1">
-                    <div class="gallery-item-description">Our cozy dining area</div>
+                    <img src="images/4.jpg" alt="Thai Dish 4">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/404/300" alt="Thai Dish 4">
-                    <div class="gallery-item-description">Mango Sticky Rice - Sweet dessert with fresh mango</div>
+                    <img src="images/5.jpg" alt="Thai Dish 5">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/405/300" alt="Restaurant Exterior">
-                    <div class="gallery-item-description">Welcome to Simply Thai</div>
+                    <img src="images/6.jpg" alt="Thai Dish 6">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/406/300" alt="Thai Dish 5">
-                    <div class="gallery-item-description">Papaya Salad - Refreshing and spicy</div>
+                    <img src="images/7.jpg" alt="Thai Dish 7">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://placekitten.com/407/300" alt="Restaurant Interior 2">
-                    <div class="gallery-item-description">Our bar area</div>
+                    <img src="images/8.jpg" alt="Thai Dish 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/9.jpg" alt="Thai Dish 9">
                 </div>
             </div>
 
             <footer>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="Twitter">TW</a>
-                </div>
-                <p>Hours: Mon-Fri 11am-10pm, Sat-Sun 12pm-11pm</p>
-                <p>&copy; 2023 Simply Thai. All rights reserved.</p>
+                <p>&copy; 2024 Simply Thai. All rights reserved.</p>
             </footer>
         </div>
     </div>
