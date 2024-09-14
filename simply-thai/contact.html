@@ -7,181 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #F8F8F2;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        .overpass-navbar-logo {
-            font-family: "Overpass", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 3400;
-            font-style: normal;
-            font-size: 2rem;
-        }
-
-        /* Header styles */
-        header {
-            background-color: #F8F8F2;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        header.scrolled {
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #000000;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 1rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #000000;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #DAA520;
-        }
-
-        /* Mobile Nav Toggle */
-        .nav-toggle {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Main content styles */
-        .content-wrapper {
-            margin-top: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: calc(100vh - 70px);
-            padding: 2rem 1rem;
-        }
-
-        .card {
-            background-color: #FAFAF5;
-            width: 100%;
-            max-width: 888px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Map styles */
-        .map-container {
-            margin-top: 2rem;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #F8F8F2;
-            color: #000000;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: #DAA520;
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-            }
-
-            nav ul.showing {
-                display: flex;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            nav ul li {
-                margin-left: 0;
-                margin-right: 1rem;
-            }
-        }
-
-        /* Author class styles */
-.author {
-    font-size: 0.8rem; /* Makes the text smaller */
-    color: #000000; /* Color of the text */
-    margin-top: 1rem; /* Adds some space above the author section */
-}
-
-.author a {
-    color: #DAA520; /* Color of the link */
-    text-decoration: none; /* Removes underline from the link */
-}
-
-.author a:hover {
-    text-decoration: underline; /* Adds underline on hover */
-}
-
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <header>
@@ -206,66 +32,29 @@
             <p>We'd love to hear from you! Whether you have a question about our menu, want to make a reservation, or just want to say hello, feel free to reach out to us.</p><br>
 
             <div class="contact-info">
+                <h2>Contact Information</h2>
                 <p>(416) 769-8866</p>
                 <p>simplythaito@gmail.com</p>
                 <p>2253 Bloor St W, Toronto, ON M6S 1N8</p>
             </div>
 
-            <div class="hours"><br>
+            <div class="hours">
                 <h2>Hours of Operation</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Monday</td>
-                            <td>11:30 am – 10:00 pm</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>11:30 am – 10:00 pm</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday</td>
-                            <td>11:30 am – 10:00 pm</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td>11:30 am – 10:00 pm</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>11:30 am – 11:00 pm</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>11:30 am – 11:00 pm</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>11:30 am – 10:00 pm</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
+                <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
+                <p>Saturday - Sunday: 12:00 PM - 11:00 PM</p>
+            </div>
+
             <div class="map-container">
                 <h2>Find Us</h2>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5143.793936752585!2d-79.481476973084!3d43.65115051923726!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b36871ee19219%3A0xb31b0b12da9b2fd1!2sSimply%20Thai%20Cuisine!5e0!3m2!1sen!2sca!4v1726337103789!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <footer>
-
-
                 <p>&copy; 2024 Simply Thai. All rights reserved.</p>
                 <div class="author">
                     Designed & Developed by <a href="https://github.com/905timur" target="_blank">905timur</a>
                 </div>
             </footer>
-            
         </div>
     </div>
 
