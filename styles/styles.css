@@ -127,6 +127,56 @@ body {
     bottom: 0;
 }
 
+/* New styles for mobile menu */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .main-nav .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #F8F8F2;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-nav .nav-menu.active {
+        display: block;
+    }
+
+    .main-nav .nav-menu li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .main-nav .nav-menu li a {
+        display: block;
+        padding: 1rem;
+    }
+
+    /* Hamburger animation */
+    .nav-toggle.active .hamburger::before {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .nav-toggle.active .hamburger span {
+        opacity: 0;
+    }
+
+    .nav-toggle.active .hamburger::after {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Ensure desktop menu is visible on larger screens */
+@media (min-width: 769px) {
+    .main-nav .nav-menu {
+        display: flex !important;
+    }
+}
 /* Main content styles */
 .content-wrapper {
     margin-top: 70px;
